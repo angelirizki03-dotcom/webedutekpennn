@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi: Dasar-Dasar Komputasi Awan</title>
+    <!-- Memuat Tailwind CSS untuk styling yang bersih dan responsif -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Mengatur font utama ke Inter dan warna latar belakang tema biru muda */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5faff; /* Latar belakang biru yang sangat lembut */
+        }
+        /* Custom scrollbar untuk elemen konten */
+        .content-scroll {
+            scrollbar-width: thin;
+            scrollbar-color: #3b82f6 #e0f2fe; /* Biru Primer dan Biru Ekstra Muda */
+        }
+        .content-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        .content-scroll::-webkit-scrollbar-thumb {
+            background-color: #3b82f6; /* Biru Primer */
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header / Navbar Utama - Menggunakan Biru Gelap (bg-blue-600) agar serasi dengan index.html -->
+    <header class="bg-blue-600 shadow-lg sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Tombol Kembali ke Beranda -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-white text-xl font-bold tracking-wider hover:text-blue-200 transition duration-300 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        Ke Beranda
+                    </a>
+                </div>
+                
+                <!-- Judul Halaman Saat Ini -->
+                <div class="hidden sm:block">
+                    <span class="text-white text-xl font-semibold">Materi: Dasar-Dasar Komputasi Awan</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Konten Utama Halaman -->
+    <main class="flex-grow max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+            <!-- Kolom Kiri: Daftar Isi (TOC) - Sticky untuk navigasi mudah -->
+            <aside class="lg:col-span-1 bg-white p-6 rounded-xl shadow-xl sticky top-20 h-fit hidden lg:block border border-blue-100">
+                <h3 class="text-xl font-bold text-blue-700 mb-4 border-b-2 border-blue-200 pb-2">Daftar Isi</h3>
+                <nav class="space-y-2">
+                    <a href="#pendahuluan" class="block text-gray-700 hover:text-white hover:bg-blue-500 font-medium transition duration-200 p-2 rounded-lg">1.thaharah </a>
+                    <a href="#model-layanan" class="block text-gray-700 hover:text-white hover:bg-blue-500 font-medium transition duration-200 p-2 rounded-lg">2. wudhu</a>
+                    <a href="#model-deployment" class="block text-gray-700 hover:text-white hover:bg-blue-500 font-medium transition duration-200 p-2 rounded-lg">3. tayamum</a>
+                    <a href="#keuntungan" class="block text-gray-700 hover:text-white hover:bg-blue-500 font-medium transition duration-200 p-2 rounded-lg">4. macam-macam air</a>
+                    <a href="#kesimpulan" class="block text-gray-700 hover:text-white hover:bg-blue-500 font-medium transition duration-200 p-2 rounded-lg">5. Kesimpulan</a>
+                </nav>
+            </aside>
+
+            <!-- Kolom Kanan: Isi Materi -->
+            <article class="lg:col-span-3 bg-white p-6 sm:p-10 rounded-xl shadow-2xl content-scroll max-h-[85vh] border-t-8 border-blue-500">
+                <h1 class="text-4xl font-extrabold text-blue-800 mb-2">Judul Sub-materi</h1>
+                <p class="text-sm text-gray-500 mb-8 italic">Pembaruan Terakhir: 25 November 2025</p>
+
+                <!-- 1. Pendahuluan -->
+                <section id="pendahuluan" class="mb-12">
+                    <h2 class="text-3xl font-extrabold text-blue-700 mb-4 pt-4 border-b pb-2">1. Thaharah</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Materi bisa dimasukan disini
+                    </p>
+                    <p class="text-gray-700 leading-relaxed border-l-4 border-blue-300 pl-4 py-1">
+                        Alih-alih memiliki atau memelihara infrastruktur komputasi fisik Anda sendiri, Anda dapat mengakses layanan teknologi dari penyedia cloud seperti Amazon Web Services (AWS), Google Cloud (GCP), atau Microsoft Azure.
+                    </p>
+                </section>
+
+                <!-- 2. Model Layanan Utama -->
+                <section id="model-layanan" class="mb-12">
+                    <h2 class="text-3xl font-extrabold text-blue-700 mb-4 pt-4 border-b pb-2">2. Model Layanan Utama</h2>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        Ada tiga model layanan utama yang ditawarkan oleh penyedia cloud, yang menunjukkan tingkat kendali yang berbeda bagi pengguna. Semakin tinggi tingkatnya, semakin sedikit yang perlu Anda kelola sendiri.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <!-- Poin-poin pneting dalam materi -->
+                        <div class="p-5 bg-blue-50 border border-blue-200 rounded-xl shadow-md transition duration-300 hover:shadow-lg">
+                            <h4 class="text-2xl font-bold text-blue-600 mb-2 flex items-center">
+                                <span class="bg-blue-600 text-white w-8 h-8 flex items-center justify-center rounded-full mr-3 text-sm font-extrabold">A</span> Infrastructure as a Service (IaaS)
+                            </h4>
+                            <p class="text-gray-700">tharah adalah......</p>
+                            <span class="text-sm text-blue-500 italic mt-2 block">Contoh: AWS EC2, Google Compute Engine.</span>
+                        </div>
+                        
+                        <!-- PaaS -->
+                        <div class="p-5 bg-blue-50 border border-blue-200 rounded-xl shadow-md transition duration-300 hover:shadow-lg">
+                            <h4 class="text-2xl font-bold text-blue-600 mb-2 flex items-center">
+                                <span class="bg-blue-600 text-white w-8 h-8 flex items-center justify-center rounded-full mr-3 text-sm font-extrabold">B</span> Platform as a Service (PaaS)
+                            </h4>
+                            <p class="text-gray-700">Menyediakan lingkungan pengembangan dan deployment yang lengkap (termasuk OS dan alat), namun Anda tidak mengelola infrastruktur dasarnya.</p>
+                            <span class="text-sm text-blue-500 italic mt-2 block">Contoh: Google App Engine, AWS Elastic Beanstalk.</span>
+                        </div>
+                        
+                        <!-- SaaS -->
+                        <div class="p-5 bg-blue-50 border border-blue-200 rounded-xl shadow-md transition duration-300 hover:shadow-lg">
+                            <h4 class="text-2xl font-bold text-blue-600 mb-2 flex items-center">
+                                <span class="bg-blue-600 text-white w-8 h-8 flex items-center justify-center rounded-full mr-3 text-sm font-extrabold">C</span> Software as a Service (SaaS)
+                            </h4>
+                            <p class="text-gray-700">Menyediakan perangkat lunak siap pakai yang diakses melalui internet, dikelola sepenuhnya oleh penyedia. Anda hanya perlu menggunakan aplikasi tersebut.</p>
+                            <span class="text-sm text-blue-500 italic mt-2 block">Contoh: Gmail, Microsoft Office 365, Google Docs.</span>
+                        </div>
+                    </div>
+                    <!-- Diagram untuk visualisasi perbandingan IaaS, PaaS, SaaS -->
+                    
+                </section>
+
+                <!-- 3. Model Deployment -->
+                <section id="model-deployment" class="mb-12">
+                    <h2 class="text-3xl font-extrabold text-blue-700 mb-4 pt-4 border-b pb-2">3. Model Deployment</h2>
+                    <ul class="list-none space-y-3 text-gray-700">
+                        <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                            <span class="font-semibold text-blue-600">Awan Publik (Public Cloud):</span> Layanan disediakan melalui internet publik dan tersedia untuk siapa pun.
+                        </li>
+                        <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                            <span class="font-semibold text-blue-600">Awan Pribadi (Private Cloud):</span> Infrastruktur cloud yang dioperasikan hanya untuk satu organisasi.
+                        </li>
+                        <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                            <span class="font-semibold text-blue-600">Awan Hibrida (Hybrid Cloud):</span> Kombinasi dari awan publik dan pribadi, di mana data dan aplikasi dapat dipindahkan antar keduanya.
+                        </li>
+                    </ul>
+                </section>
+                
+                <!-- 4. Keuntungan dan Risiko -->
+                <section id="keuntungan" class="mb-12">
+                    <h2 class="text-3xl font-extrabold text-blue-700 mb-4 pt-4 border-b pb-2">4. Keuntungan dan Risiko</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Keuntungan -->
+                        <div class="p-5 bg-green-50 border border-green-200 rounded-xl shadow-inner">
+                            <h3 class="text-2xl font-bold text-green-700 mb-3">Keuntungan Utama</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                                <li>**Skalabilitas:** Dapat menambah atau mengurangi sumber daya dengan cepat.</li>
+                                <li>**Efisiensi Biaya:** Hanya membayar untuk sumber daya yang benar-benar digunakan (Pay-as-you-go).</li>
+                                <li>**Aksesibilitas Global:** Akses ke data dari mana saja, kapan saja.</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Risiko -->
+                        <div class="p-5 bg-red-50 border border-red-200 rounded-xl shadow-inner">
+                            <h3 class="text-2xl font-bold text-red-700 mb-3">Risiko Utama</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                                <li>**Keamanan Data:** Meskipun penyedia cloud aman, pengguna tetap bertanggung jawab atas konfigurasi data mereka.</li>
+                                <li>**Ketergantungan Vendor:** Sulit memindahkan layanan ke penyedia lain jika sudah terikat.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. Kesimpulan -->
+                <section id="kesimpulan" class="mb-10">
+                    <h2 class="text-3xl font-extrabold text-blue-700 mb-4 pt-4 border-b pb-2">5. Kesimpulan</h2>
+                    <div class="p-6 bg-blue-100 border-l-8 border-blue-500 rounded-xl shadow-inner">
+                        <p class="text-blue-800 leading-relaxed italic">
+                            Komputasi Awan telah merevolusi cara bisnis dan individu beroperasi, menawarkan fleksibilitas, efisiensi, dan skalabilitas yang belum pernah terjadi sebelumnya. Memahami model layanan (IaaS, PaaS, SaaS) dan model deployment adalah langkah awal yang krusial untuk memanfaatkan teknologi ini sepenuhnya.
+                        </p>
+                    </div>
+                    <a href="index.html#kuis" class="mt-8 inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-full hover:bg-blue-700 transition duration-300 shadow-lg transform hover:scale-105">
+                        <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.278a11.954 11.954 0 01-1.29 5.869 11.954 11.954 0 01-5.869 1.29C8.32 17.5 4.5 13.68 4.5 9A4.5 4.5 0 019 4.5c4.68 0 8.5 3.82 8.5 8.5z"></path></svg>
+                        Lanjut ke Kuis!
+                    </a>
+                </section>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer Sederhana - Serasi dengan index.html -->
+    <footer class="bg-blue-800 text-white py-4 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            &copy; 2025 Pusat Pembelajaran Biru. Hak Cipta Dilindungi.
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video: Tutorial dan Wawasan Visual</title>
+    <!-- Memuat Tailwind CSS untuk styling yang bersih dan responsif -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Mengatur font utama ke Inter dan warna latar belakang tema biru muda */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5faff; /* Latar belakang biru yang sangat lembut */
+        }
+        /* Styling untuk container video agar rasio aspek 16:9 tetap terjaga */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* Rasio 16:9 (9 / 16 * 100) */
+            background-color: #000;
+            cursor: pointer;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        .video-container:hover {
+             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        /* Style untuk lapisan placeholder (ikon play dan teks) */
+        .placeholder-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(74, 85, 104, 0.8); /* Abu-abu gelap transparan */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header / Navbar Utama - Serasi dengan index.html -->
+    <header class="bg-blue-600 shadow-lg sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Tombol Kembali ke Beranda -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-white text-xl font-bold tracking-wider hover:text-blue-200 transition duration-300 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        Ke Beranda
+                    </a>
+                </div>
+                
+                <!-- Judul Halaman Saat Ini -->
+                <div class="hidden sm:block">
+                    <span class="text-white text-xl font-semibold">Macam-macam </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Konten Utama Halaman -->
+    <main class="flex-grow max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 w-full">
+        <h1 class="text-4xl font-extrabold text-blue-800 mb-2">Pustaka Video Pembelajaran</h1>
+        <p class="text-gray-600 mb-10 max-w-3xl">Tonton video tutorial dan wawasan dari para ahli untuk memperkuat pemahaman Anda tentang Komputasi Awan.</p>
+
+        <!-- Container untuk Semua Topik Video -->
+        <div class="space-y-12">
+
+            <!-- KELOMPOK 1: Tutorial Praktis: Implementasi Cloud -->
+            <section class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl border-t-8 border-blue-500">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6">Macam-macam Air</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Video 1.1 -->
+                    <div class="col-span-1">
+                        <div id="video1" class="video-container" onclick="playLocalVideo('video1', 'video/placeholder_v1.mp4')">
+                            <!-- Elemen Video - Ganti src="#" dengan path file video Anda -->
+                            <video id="player-1" class="absolute top-0 left-0 w-full h-full" poster="https://placehold.co/600x338/3b82f6/ffffff?text=Video+1+:+Pengaturan+Server" muted loop>
+                                <source src="video/1.mp4" type="video/mp4">
+                                Browser Anda tidak mendukung tag video.
+                            </video>
+                            <div class="placeholder-overlay">
+                                <span class="text-4xl mb-2">&#9658;</span> <!-- Ikon Play -->
+                                <p class="text-lg">Video 1: Pengaturan Server Virtual (Klik untuk Putar)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 1.2 -->
+                    <div class="col-span-1">
+                        <div id="video2" class="video-container" onclick="playLocalVideo('video2', 'video/placeholder_v2.mp4')">
+                            <video id="player-2" class="absolute top-0 left-0 w-full h-full" poster="https://placehold.co/600x338/3b82f6/ffffff?text=Video+2+:+Dasar+Jaringan+Cloud" muted loop>
+                                <source src="#" type="video/mp4">
+                                Browser Anda tidak mendukung tag video.
+                            </video>
+                            <div class="placeholder-overlay">
+                                <span class="text-4xl mb-2">&#9658;</span>
+                                <p class="text-lg">Video 2: Dasar Jaringan Cloud (Klik untuk Putar)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 1.3 -->
+                    <div class="col-span-1">
+                        <div id="video3" class="video-container" onclick="playLocalVideo('video3', 'video/placeholder_v3.mp4')">
+                            <video id="player-3" class="absolute top-0 left-0 w-full h-full" poster="https://placehold.co/600x338/3b82f6/ffffff?text=Video+3+:+Deployment+PaaS" muted loop>
+                                <source src="#" type="video/mp4">
+                                Browser Anda tidak mendukung tag video.
+                            </video>
+                            <div class="placeholder-overlay">
+                                <span class="text-4xl mb-2">&#9658;</span>
+                                <p class="text-lg">Video 3: Deployment Aplikasi PaaS (Klik untuk Putar)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 1.4 -->
+                    <div class="col-span-1">
+                        <div id="video4" class="video-container" onclick="playLocalVideo('video4', 'video/placeholder_v4.mp4')">
+                            <video id="player-4" class="absolute top-0 left-0 w-full h-full" poster="https://placehold.co/600x338/3b82f6/ffffff?text=Video+4+:+Migrasi+Data" muted loop>
+                                <source src="#" type="video/mp4">
+                                Browser Anda tidak mendukung tag video.
+                            </video>
+                            <div class="placeholder-overlay">
+                                <span class="text-4xl mb-2">&#9658;</span>
+                                <p class="text-lg">Video 4: Migrasi Data ke Cloud (Klik untuk Putar)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            
+            <!-- KELOMPOK 2: Wawasan Mendalam: Masa Depan Teknologi -->
+            <section class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl border-t-8 border-blue-500">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6">2. Wawasan Mendalam: Tren dan Masa Depan Cloud</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                    <!-- Video 2.1 -->
+                    <div class="col-span-1">
+                        <div id="video5" class="video-container" onclick="playLocalVideo('video5', 'video/placeholder_v5.mp4')">
+                            <video id="player-5" class="absolute top-0 left-0 w-full h-full" poster="https://placehold.co/600x338/3b82f6/ffffff?text=Video+5+:+Konsep+Serverless" muted loop>
+                                <source src="#" type="video/mp4">
+                                Browser Anda tidak mendukung tag video.
+                            </video>
+                            <div class="placeholder-overlay">
+                                <span class="text-4xl mb-2">&#9658;</span>
+                                <p class="text-lg">Video 5: Konsep Serverless (Klik untuk Putar)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 2.2 -->
+                    <div class="col-span-1">
+                        <div id="video6" class="video-container" onclick="playLocalVideo('video6', 'video/placeholder_v6.mp4')">
+                            <video id="player-6" class="absolute top-0 left-0 w-full h-full" poster="https://placehold.co/600x338/3b82f6/ffffff?text=Video+6+:+Keamanan+Data" muted loop>
+                                <source src="#" type="video/mp4">
+                                Browser Anda tidak mendukung tag video.
+                            </video>
+                            <div class="placeholder-overlay">
+                                <span class="text-4xl mb-2">&#9658;</span>
+                                <p class="text-lg">Video 6: Keamanan Data dan Regulasi (Klik untuk Putar)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 2.3 -->
+                    <div class="col-span-1">
+                        <div id="video7" class="video-container" onclick="playLocalVideo('video7', 'video/placeholder_v7.mp4')">
+                            <video id="player-7" class="absolute top-0 left-0 w-full h-full" poster="https://placehold.co/600x338/3b82f6/ffffff?text=Video+7+:+AI+di+Cloud" muted loop>
+                                <source src="#" type="video/mp4">
+                                Browser Anda tidak mendukung tag video.
+                            </video>
+                            <div class="placeholder-overlay">
+                                <span class="text-4xl mb-2">&#9658;</span>
+                                <p class="text-lg">Video 7: Peran AI dan ML di Cloud (Klik untuk Putar)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 2.4 -->
+                    <div class="col-span-1">
+                        <div id="video8" class="video-container" onclick="playLocalVideo('video8', 'video/placeholder_v8.mp4')">
+                            <video id="player-8" class="absolute top-0 left-0 w-full h-full" poster="https://placehold.co/600x338/3b82f6/ffffff?text=Video+8+:+Evolusi+Multi-Cloud" muted loop>
+                                <source src="#" type="video/mp4">
+                                Browser Anda tidak mendukung tag video.
+                            </video>
+                            <div class="placeholder-overlay">
+                                <span class="text-4xl mb-2">&#9658;</span>
+                                <p class="text-lg">Video 8: Evolusi Multi-Cloud (Klik untuk Putar)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <div class="text-center mt-12">
+             <a href="index.html" class="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-full hover:bg-blue-700 transition duration-300 shadow-lg transform hover:scale-105">
+                <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2 2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                Kembali ke Menu Utama
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer Sederhana - Serasi dengan index.html -->
+    <footer class="bg-blue-800 text-white py-4 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            &copy; 2025 Pusat Pembelajaran Biru. Hak Cipta Dilindungi.
+        </div>
+    </footer>
+
+    <script>
+        /**
+         * Fungsi untuk memulai pemutaran video lokal saat diklik.
+         * @param {string} containerId - ID dari container video (contoh: 'video1').
+         * @param {string} videoPath - Path file video lokal (ini harus diganti oleh pengguna).
+         */
+        function playLocalVideo(containerId, videoPath) {
+            const container = document.getElementById(containerId);
+            const videoPlayer = container.querySelector('video');
+            const placeholder = container.querySelector('.placeholder-overlay');
+
+            if (videoPlayer) {
+                // Hapus event listener agar tidak memicu pemutaran berulang saat video sedang diputar
+                container.onclick = null; 
+                
+                // Tambahkan source video (Pengguna harus mengganti src="#" di HTML agar video dapat diputar)
+                // Dalam lingkungan ini, kita hanya bisa melakukan play() pada elemen video.
+                // Jika video memiliki src yang valid, ini akan mulai memutar:
+                
+                // Jika src masih kosong, Anda bisa menggantinya di sini (misalnya: videoPlayer.src = videoPath;)
+                
+                // Hilangkan placeholder overlay
+                if (placeholder) {
+                    placeholder.style.opacity = '0'; // Buat transparan
+                    setTimeout(() => {
+                        placeholder.remove(); // Hapus setelah transisi
+                    }, 300);
+                }
+
+                // Set atribut loop dan play
+                videoPlayer.loop = true;
+                videoPlayer.muted = false; // Buka mute agar ada suara jika file ada (opsional)
+                videoPlayer.setAttribute('controls', 'true'); // Tampilkan kontrol video
+                
+                // Karena video harus di-load ulang dengan src baru (jika Anda memuat file), 
+                // ini adalah simulasi play.
+                videoPlayer.play().catch(error => {
+                    console.error("Gagal memutar video secara otomatis. Pastikan file video valid atau pengguna harus mengklik play manual.", error);
+                    // Tampilkan kontrol jika autoplay gagal
+                    if (videoPlayer.hasAttribute('controls')) {
+                        // Tidak perlu peringatan, karena ini adalah lingkungan placeholder
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>
