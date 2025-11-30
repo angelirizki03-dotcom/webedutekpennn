@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis: Uji Pemahaman Komputasi Awan</title>
+    <!-- Memuat Tailwind CSS untuk styling yang bersih dan responsif -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Mengatur font utama ke Inter dan warna latar belakang tema biru muda */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5faff; /* Latar belakang biru yang sangat lembut */
+        }
+        /* Styling untuk bar waktu */
+        #time-bar {
+            transition: width 0.1s linear;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header / Navbar Utama - Serasi dengan index.html -->
+    <header class="bg-blue-600 shadow-lg sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Tombol Kembali ke Beranda -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-white text-xl font-bold tracking-wider hover:text-blue-200 transition duration-300 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        Ke Beranda
+                    </a>
+                </div>
+                
+                <!-- Judul Halaman Saat Ini -->
+                <div class="hidden sm:block">
+                    <span class="text-white text-xl font-semibold">Kuis: Uji Pemahaman Anda</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Konten Utama Halaman Kuis -->
+    <main class="flex-grow max-w-4xl mx-auto p-4 sm:p-6 lg:p-8 w-full flex items-center justify-center">
+        
+        <div id="quiz-container" class="bg-white p-6 sm:p-10 rounded-xl shadow-2xl w-full border-t-8 border-blue-500">
+            
+            <!-- Layar Mulai Kuis -->
+            <div id="start-screen" class="text-center">
+                <h1 class="text-3xl font-extrabold text-blue-800 mb-4">Selamat Datang di Kuis Komputasi Awan</h1>
+                <p class="text-lg text-gray-600 mb-6">Uji pemahaman Anda tentang konsep dasar cloud. Ada 20 pertanyaan yang harus Anda jawab.</p>
+                <p class="text-xl font-bold text-red-500 mb-8">Waktu per pertanyaan: 10 detik! (Skor Maksimal: 100)</p>
+                <button onclick="startQuiz()" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition duration-300 shadow-lg transform hover:scale-105">
+                    Mulai Kuis Sekarang
+                </button>
+            </div>
+
+            <!-- Layar Kuis Aktif -->
+            <div id="quiz-active" class="hidden">
+                <!-- Bar Waktu -->
+                <div class="mb-4">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-blue-600 font-semibold">Waktu Tersisa:</span>
+                        <span id="time-display" class="text-blue-600 font-bold">10 detik</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div id="time-bar" class="bg-blue-500 h-2.5 rounded-full" style="width: 100%"></div>
+                    </div>
+                </div>
+
+                <!-- Informasi Pertanyaan -->
+                <div class="text-lg font-medium text-gray-500 mb-6 border-b pb-2">
+                    Pertanyaan <span id="current-q-number">1</span> dari 20
+                </div>
+
+                <!-- Konten Pertanyaan -->
+                <div class="bg-blue-50 p-6 rounded-lg shadow-inner mb-8">
+                    <p id="question-text" class="text-xl font-semibold text-gray-800"></p>
+                </div>
+
+                <!-- Pilihan Jawaban -->
+                <div id="options-container" class="space-y-4">
+                    <!-- Tombol Jawaban akan dimasukkan di sini oleh JS -->
+                </div>
+            </div>
+
+            <!-- Layar Hasil Kuis -->
+            <div id="results-screen" class="hidden text-center p-8 bg-blue-50 rounded-xl">
+                <h2 class="text-4xl font-extrabold text-blue-700 mb-6">Hasil Kuis Anda</h2>
+                
+                <div class="space-y-4 mb-8">
+                    <div class="p-4 bg-green-100 rounded-lg">
+                        <p class="text-xl font-semibold text-green-700">Jawaban Benar: <span id="correct-count" class="text-3xl font-extrabold ml-2">0</span></p>
+                    </div>
+                    <div class="p-4 bg-yellow-100 rounded-lg">
+                        <p class="text-xl font-semibold text-yellow-700">Skor Akhir: <span id="final-score" class="text-3xl font-extrabold ml-2">0</span></p>
+                        <p class="text-sm text-gray-600 mt-1">Perhitungan: Jawaban Benar &times; 5</p>
+                    </div>
+                </div>
+
+                <button onclick="window.location.reload()" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition duration-300 shadow-lg transform hover:scale-105">
+                    Ulangi Kuis
+                </button>
+                <a href="index.html" class="ml-4 inline-block text-blue-600 font-semibold py-3 px-8 hover:text-blue-800 transition duration-300">
+                    Kembali ke Beranda
+                </a>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Footer Sederhana -->
+    <footer class="bg-blue-800 text-white py-4 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            &copy; 2025 Pusat Pembelajaran Biru. Hak Cipta Dilindungi.
+        </div>
+    </footer>
+
+    <script>
+        // Data Kuis: 20 Pertanyaan tentang Komputasi Awan
+        const quizData = [
+            {
+                question: "Apakah itu Wudhu?",
+                options: ["Bersuci", "Thaharh", "Membersihkan", "Mengepel"],
+                correctAnswer: 2 // Thaharh
+            },
+            {
+                question: "Layanan aplikasi yang siap digunakan seperti Gmail, Dropbox, atau Microsoft Office 365 dikategorikan sebagai model...",
+                options: ["IaaS", "PaaS", "SaaS", "Serverless"],
+                correctAnswer: 2 // SaaS
+            },
+            {
+                question: "Model deployment cloud di mana infrastrukturnya dioperasikan khusus untuk satu organisasi dan dikelola oleh organisasi itu sendiri atau pihak ketiga adalah...",
+                options: ["Public Cloud", "Hybrid Cloud", "Community Cloud", "Private Cloud"],
+                correctAnswer: 3 // Private Cloud
+            },
+            {
+                question: "Manfaat utama dari komputasi awan yang memungkinkan pengguna membayar hanya untuk sumber daya yang benar-benar mereka gunakan dikenal sebagai...",
+                options: ["Vendor Lock-in", "Latensi Rendah", "Pay-as-you-go", "Fixed Pricing"],
+                correctAnswer: 2 // Pay-as-you-go
+            },
+            {
+                question: "Model yang menyediakan lingkungan pengembangan aplikasi yang lengkap tanpa perlu mengelola OS, server, atau jaringan disebut...",
+                options: ["IaaS", "PaaS", "SaaS", "DaaS"],
+                correctAnswer: 1 // PaaS
+            },
+            {
+                question: "Prinsip utama yang memungkinkan sumber daya cloud dapat ditingkatkan atau dikurangi sesuai kebutuhan secara cepat adalah...",
+                options: ["Skalabilitas Elastis", "Redundansi Tinggi", "Akses Jaringan", "Perawatan Mandiri"],
+                correctAnswer: 0 // Skalabilitas Elastis
+            },
+            {
+                question: "Berikut ini yang merupakan contoh layanan IaaS dari AWS adalah...",
+                options: ["AWS Lambda", "Amazon S3", "Amazon EC2", "Amazon RDS"],
+                correctAnswer: 2 // Amazon EC2
+            },
+            {
+                question: "Apa risiko utama yang terjadi ketika sulit untuk memigrasikan data dan aplikasi dari satu penyedia cloud ke penyedia lain?",
+                options: ["Data Leakage", "DDoS Attack", "Vendor Lock-in", "Compliance Risk"],
+                correctAnswer: 2 // Vendor Lock-in
+            },
+            {
+                question: "Konsep komputasi yang memungkinkan kode berjalan tanpa perlu mengelola infrastruktur server sama sekali disebut...",
+                options: ["Microservices", "Containers", "Serverless Computing", "Virtualization"],
+                correctAnswer: 2 // Serverless Computing
+            },
+            {
+                question: "Dalam model Tanggung Jawab Bersama (Shared Responsibility Model), penyedia cloud bertanggung jawab atas...",
+                options: ["Keamanan di Cloud (Security *in* the Cloud)", "Keamanan dari Cloud (Security *of* the Cloud)", "Konfigurasi Data Pelanggan", "Manajemen Akses Pengguna"],
+                correctAnswer: 1 // Keamanan dari Cloud (Infrastruktur fisik)
+            },
+            {
+                question: "Apa yang dimaksud dengan 'Edge Computing' dalam konteks cloud?",
+                options: ["Proses data di server pusat", "Proses data yang dekat dengan sumbernya", "Jaringan virtual yang terisolasi", "Penyimpanan data jangka panjang"],
+                correctAnswer: 1 // Proses data yang dekat dengan sumbernya
+            },
+            {
+                question: "Azure, Google Cloud Platform (GCP), dan Amazon Web Services (AWS) sering dikelompokkan sebagai...",
+                options: ["Penyedia PaaS", "Penyedia Hypervisor", "Hyperscaler Cloud Providers", "Managed Service Providers"],
+                correctAnswer: 2 // Hyperscaler Cloud Providers
+            },
+            {
+                question: "Ketika sebuah organisasi menggunakan kombinasi Public Cloud dan Private Cloud, model deployment ini disebut...",
+                options: ["Multicloud", "Hybrid Cloud", "Community Cloud", "Inter Cloud"],
+                correctAnswer: 1 // Hybrid Cloud
+            },
+            {
+                question: "Layanan database terkelola (Managed Database Services) biasanya termasuk dalam kategori layanan cloud model...",
+                options: ["IaaS", "SaaS", "PaaS", "XaaS"],
+                correctAnswer: 2 // PaaS (Karena platform-nya dikelola)
+            },
+            {
+                question: "Berikut ini yang merupakan salah satu karakteristik penting dari Cloud Computing, selain Elastisitas dan Pay-as-you-go, adalah...",
+                options: ["Akses Jaringan Terbatas", "Resource Pooling", "Siklus Pembelian Hardware", "Kendali Penuh Hardware"],
+                correctAnswer: 1 // Resource Pooling
+            },
+            {
+                question: "Istilah yang digunakan untuk menggabungkan banyak server fisik menjadi satu kolam sumber daya (resource pool) adalah...",
+                options: ["Deployment", "Provisioning", "Virtualization", "Clustering"],
+                correctAnswer: 2 // Virtualization
+            },
+            {
+                question: "Apa itu 'SLA' dalam konteks layanan cloud?",
+                options: ["Software Licensing Agreement", "Service Level Agreement", "Security Layer Access", "System Load Automation"],
+                correctAnswer: 1 // Service Level Agreement
+            },
+            {
+                question: "Layanan penyimpanan objek seperti Amazon S3 atau Google Cloud Storage adalah contoh dari layanan...",
+                options: ["IaaS (Storage)", "PaaS (Database)", "SaaS (Application)", "FaaS (Function)"],
+                correctAnswer: 0 // IaaS (Storage)
+            },
+            {
+                question: "Model pricing 'Reserved Instances' di cloud bertujuan untuk...",
+                options: ["Memberikan fleksibilitas penuh", "Mengurangi biaya untuk penggunaan jangka panjang", "Meningkatkan latensi", "Menghapus semua vendor lock-in"],
+                correctAnswer: 1 // Mengurangi biaya untuk penggunaan jangka panjang
+            },
+            {
+                question: "Yang menjadi tanggung jawab utama pelanggan dalam model SaaS adalah...",
+                options: ["Manajemen Server", "Sistem Operasi", "Data dan Akses Pengguna", "Infrastruktur Jaringan"],
+                correctAnswer: 2 // Data dan Akses Pengguna
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let correctAnswers = 0;
+        let timer;
+        const TIME_LIMIT = 10; // Detik per pertanyaan
+        const SCORE_PER_QUESTION = 5;
+
+        // Mendapatkan elemen DOM
+        const startScreen = document.getElementById('start-screen');
+        const quizActive = document.getElementById('quiz-active');
+        const resultsScreen = document.getElementById('results-screen');
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const currentQNumber = document.getElementById('current-q-number');
+        const timeBar = document.getElementById('time-bar');
+        const timeDisplay = document.getElementById('time-display');
+        const correctCountDisplay = document.getElementById('correct-count');
+        const finalScoreDisplay = document.getElementById('final-score');
+
+        /**
+         * Memulai kuis dengan menampilkan layar kuis aktif.
+         */
+        function startQuiz() {
+            startScreen.classList.add('hidden');
+            quizActive.classList.remove('hidden');
+            currentQuestionIndex = 0;
+            correctAnswers = 0;
+            loadQuestion();
+        }
+
+        /**
+         * Memuat pertanyaan saat ini ke UI.
+         */
+        function loadQuestion() {
+            // Jika semua pertanyaan sudah terjawab, tampilkan hasil
+            if (currentQuestionIndex >= quizData.length) {
+                showResults();
+                return;
+            }
+
+            const currentQ = quizData[currentQuestionIndex];
+            
+            // Perbarui nomor pertanyaan
+            currentQNumber.textContent = currentQuestionIndex + 1;
+            
+            // Perbarui teks pertanyaan
+            questionText.textContent = `${currentQuestionIndex + 1}. ${currentQ.question}`;
+            
+            // Bersihkan pilihan jawaban sebelumnya
+            optionsContainer.innerHTML = '';
+            
+            // Buat tombol untuk setiap pilihan
+            currentQ.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.onclick = () => selectAnswer(index);
+                button.className = 'w-full text-left p-4 bg-blue-100 text-gray-800 rounded-lg shadow-md hover:bg-blue-200 transition duration-200 font-medium border border-blue-300 transform hover:scale-[1.01]';
+                optionsContainer.appendChild(button);
+            });
+
+            // Mulai ulang timer
+            startTimer();
+        }
+
+        /**
+         * Memulai atau mereset hitungan mundur (timer).
+         */
+        function startTimer() {
+            clearInterval(timer); // Pastikan timer sebelumnya dihentikan
+            let timeLeft = TIME_LIMIT;
+            
+            timeDisplay.textContent = `${timeLeft} detik`;
+            timeBar.style.width = '100%';
+            timeBar.classList.remove('bg-red-500');
+            timeBar.classList.add('bg-blue-500');
+
+            timer = setInterval(() => {
+                timeLeft--;
+                timeDisplay.textContent = `${timeLeft} detik`;
+                
+                // Perbarui bar waktu
+                const widthPercentage = (timeLeft / TIME_LIMIT) * 100;
+                timeBar.style.width = `${widthPercentage}%`;
+
+                // Ubah warna bar jika waktu kritis
+                if (timeLeft <= 3) {
+                    timeBar.classList.remove('bg-blue-500');
+                    timeBar.classList.add('bg-red-500');
+                }
+
+                // Waktu Habis
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    // Lanjut ke pertanyaan berikutnya tanpa mencatat jawaban benar
+                    moveToNextQuestion(false); 
+                }
+            }, 1000);
+        }
+
+        /**
+         * Menangani pilihan jawaban dari pengguna.
+         * @param {number} selectedIndex - Indeks pilihan yang dipilih.
+         */
+        function selectAnswer(selectedIndex) {
+            clearInterval(timer); // Hentikan timer
+            const currentQ = quizData[currentQuestionIndex];
+            const isCorrect = selectedIndex === currentQ.correctAnswer;
+            
+            // Beri feedback visual (opsional, untuk saat ini hanya cek dan lanjut)
+            
+            // Catat jawaban
+            if (isCorrect) {
+                correctAnswers++;
+            }
+            
+            // Lanjut ke pertanyaan berikutnya
+            moveToNextQuestion(isCorrect);
+        }
+
+        /**
+         * Memproses perpindahan ke pertanyaan berikutnya.
+         * @param {boolean} answered - True jika dijawab, False jika waktu habis.
+         */
+        function moveToNextQuestion(answered) {
+            // Beri jeda singkat untuk transisi (misalnya 500ms)
+            // Di sini kita langsung pindah untuk mempercepat proses kuis
+            currentQuestionIndex++;
+            loadQuestion();
+        }
+
+        /**
+         * Menghitung dan menampilkan hasil akhir kuis.
+         */
+        function showResults() {
+            quizActive.classList.add('hidden');
+            resultsScreen.classList.remove('hidden');
+
+            const finalScore = correctAnswers * SCORE_PER_QUESTION;
+            
+            correctCountDisplay.textContent = correctAnswers;
+            finalScoreDisplay.textContent = finalScore;
+        }
+
+        // Memuat halaman awal saat dokumen siap
+        document.addEventListener('DOMContentLoaded', () => {
+            // Pastikan timer berhenti jika ada proses sebelumnya
+            clearInterval(timer);
+        });
+    </script>
+</body>
+</html>

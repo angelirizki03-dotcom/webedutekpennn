@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio: Podcast & Rekaman Pembelajaran</title>
+    <!-- Memuat Tailwind CSS untuk styling yang bersih dan responsif -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Mengatur font utama ke Inter dan warna latar belakang tema biru muda */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5faff; /* Latar belakang biru yang sangat lembut */
+        }
+        /* Styling khusus untuk elemen audio agar terlihat rapi */
+        .audio-player {
+            width: 100%;
+            background-color: #e0f2fe; /* Biru muda untuk latar belakang player */
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        .audio-player:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+        }
+        audio {
+            width: 100%;
+            height: 35px; /* Mengatur tinggi player agar seragam */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header / Navbar Utama - Serasi dengan index.html -->
+    <header class="bg-blue-600 shadow-lg sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Tombol Kembali ke Beranda -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-white text-xl font-bold tracking-wider hover:text-blue-200 transition duration-300 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        Ke Beranda
+                    </a>
+                </div>
+                
+                <!-- Judul Halaman Saat Ini -->
+                <div class="hidden sm:block">
+                    <span class="text-white text-xl font-semibold">Audio: Podcast & Rekaman Pembelajaran</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Konten Utama Halaman -->
+    <main class="flex-grow max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 w-full">
+        <h1 class="text-4xl font-extrabold text-blue-800 mb-2">Pustaka Audio Pembelajaran</h1>
+        <p class="text-gray-600 mb-10 max-w-3xl">Dengarkan podcast dan rekaman ringkasan untuk belajar secara auditif. Pilih topik di bawah ini.</p>
+
+        <!-- Container untuk Semua Topik Audio -->
+        <div class="space-y-12">
+
+            <!-- KELOMPOK 1: Pengantar Komputasi Awan -->
+            <section class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl border-t-8 border-blue-500">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6">1. Wudhu</h2>
+                <div class="space-y-6">
+                    
+                    <!-- Audio 1.1 -->
+                    <div class="audio-player">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Wudhu</h4>
+                        <!-- Placeholder Audio: Atribut controls penting agar player tampil -->
+                        <audio controls>
+                            <!-- Anda bisa mengganti source ini dengan URL file audio yang sebenarnya -->
+                            <source src="audio/1.mp3" type="audio/mp3">
+                            Browser Anda tidak mendukung elemen audio.
+                        </audio>
+                        <p class="text-sm text-gray-500 mt-2">Rekaman ringkas definisi dan manfaat awal cloud computing.</p>
+                    </div>
+
+                    <!-- Audio 1.2 -->
+                    <div class="audio-player">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">1.2. Model Pembayaran Pay-as-you-go (8 Menit)</h4>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Browser Anda tidak mendukung elemen audio.
+                        </audio>
+                        <p class="text-sm text-gray-500 mt-2">Penjelasan mendalam tentang efisiensi biaya dalam model cloud.</p>
+                    </div>
+
+                    <!-- Audio 1.3 -->
+                    <div class="audio-player">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">1.3. Perbedaan Cloud vs Server Lokal (15 Menit)</h4>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Browser Anda tidak mendukung elemen audio.
+                        </audio>
+                        <p class="text-sm text-gray-500 mt-2">Diskusi perbandingan infrastruktur tradisional dengan infrastruktur cloud.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- KELOMPOK 2: Memahami Model Layanan (IaaS, PaaS, SaaS) -->
+            <section class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl border-t-8 border-blue-500">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6">2. Memahami Model Layanan Utama</h2>
+                <div class="space-y-6">
+                    
+                    <!-- Audio 2.1 -->
+                    <div class="audio-player">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">2.1. Fokus pada IaaS (Infrastructure) (9 Menit)</h4>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Browser Anda tidak mendukung elemen audio.
+                        </audio>
+                        <p class="text-sm text-gray-500 mt-2">Studi kasus dan implementasi praktis IaaS.</p>
+                    </div>
+
+                    <!-- Audio 2.2 -->
+                    <div class="audio-player">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">2.2. Fokus pada PaaS (Platform) (11 Menit)</h4>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Browser Anda tidak mendukung elemen audio.
+                        </audio>
+                        <p class="text-sm text-gray-500 mt-2">Peran PaaS dalam mempercepat proses pengembangan aplikasi.</p>
+                    </div>
+
+                    <!-- Audio 2.3 -->
+                    <div class="audio-player">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">2.3. Fokus pada SaaS (Software) (7 Menit)</h4>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Browser Anda tidak mendukung elemen audio.
+                        </audio>
+                        <p class="text-sm text-gray-500 mt-2">Bagaimana SaaS mengubah landscape bisnis modern.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- KELOMPOK 3: Keamanan dan Masa Depan Cloud -->
+            <section class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl border-t-8 border-blue-500">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6">3. Keamanan dan Masa Depan Cloud</h2>
+                <div class="space-y-6">
+                    
+                    <!-- Audio 3.1 -->
+                    <div class="audio-player">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">3.1. Model Tanggung Jawab Bersama (14 Menit)</h4>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Browser Anda tidak mendukung elemen audio.
+                        </audio>
+                        <p class="text-sm text-gray-500 mt-2">Membahas di mana tanggung jawab keamanan berawal dan berakhir antara penyedia dan pengguna cloud.</p>
+                    </div>
+
+                    <!-- Audio 3.2 -->
+                    <div class="audio-player">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">3.2. Ancaman Keamanan Umum di Cloud (10 Menit)</h4>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Browser Anda tidak mendukung elemen audio.
+                        </audio>
+                        <p class="text-sm text-gray-500 mt-2">Daftar ancaman dan cara mitigasi untuk pengguna cloud.</p>
+                    </div>
+
+                    <!-- Audio 3.3 -->
+                    <div class="audio-player">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">3.3. Prediksi Tren Komputasi Awan 5 Tahun ke Depan (18 Menit)</h4>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Browser Anda tidak mendukung elemen audio.
+                        </audio>
+                        <p class="text-sm text-gray-500 mt-2">Analisis tentang edge computing, serverless, dan AI di cloud.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <div class="text-center mt-12">
+             <a href="index.html" class="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-full hover:bg-blue-700 transition duration-300 shadow-lg transform hover:scale-105">
+                <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2 2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                Kembali ke Menu Utama
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer Sederhana - Serasi dengan index.html -->
+    <footer class="bg-blue-800 text-white py-4 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            &copy; 2025 Pusat Pembelajaran Biru. Hak Cipta Dilindungi.
+        </div>
+    </footer>
+</body>
+</html>
